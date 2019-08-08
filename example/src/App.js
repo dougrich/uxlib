@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import ExampleComponent from '@dougrich/uxlib'
+import { ExampleComponent } from '@dougrich/uxlib'
 
 export default class App extends Component {
   render () {
