@@ -106,7 +106,7 @@ const TextInputBase = class extends React.PureComponent {
 }
 
 TextInputBase.propTypes = {
-  children: PropTypes.element
+  children: PropTypes.node
 }
 
 export const TextInput = withBounds(withMaxLength(withEventUnwrap(TextInputBase)))

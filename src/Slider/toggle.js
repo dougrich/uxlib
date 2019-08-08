@@ -42,6 +42,6 @@ export default class Toggle extends React.PureComponent {
 }
 
 Toggle.propTypes = {
-  value: PropTypes.number,
+  value: PropTypes.bool,
   onChange: PropTypes.func
 }

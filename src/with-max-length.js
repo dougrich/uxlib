@@ -39,7 +39,6 @@ export default function withMaxLength (Component) {
         ...rest
       } = this.props
       const hasMaxLength = maxLength != null
-      console.log(hasMaxLength)
       return (
         <Component {...rest} maxLength={maxLength} onChange={hasMaxLength ? this.onChange : onChange}>
           {hasMaxLength && this.renderMaxLength()}

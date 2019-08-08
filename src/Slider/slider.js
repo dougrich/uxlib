@@ -173,8 +173,8 @@ Slider.propTypes = {
   isStatic: PropTypes.bool,
   x: PropTypes.number,
   y: PropTypes.number,
-  step: PropTypes.number,
-  children: PropTypes.element,
+  step: PropTypes.object,
+  children: PropTypes.node,
   thumb: PropTypes.elementType,
   thumbProps: PropTypes.object
 }
