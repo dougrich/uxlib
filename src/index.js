@@ -1,7 +1,9 @@
 import { TextInput, TextArea, TextInputField, TextAreaField } from './Text'
 import { Toggle, ToggleField, Range, RangeField } from './Slider'
+import { RadioOption, RadioSet, RadioSetField } from './Radio'
 import Autocomplete from './Autocomplete'
 import { Select, SelectField } from './Select'
+import withLabel from './with-label'
 
 export {
   TextInput,
@@ -14,5 +16,9 @@ export {
   RangeField,
   Autocomplete,
   Select,
-  SelectField
+  SelectField,
+  RadioOption,
+  RadioSet,
+  RadioSetField,
+  withLabel
 }
