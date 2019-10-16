@@ -1,5 +1,6 @@
 import { TextInput, TextArea, TextInputField, TextAreaField } from './Text'
 import { Toggle, ToggleField, Range, RangeField } from './Slider'
+import Autocomplete from './Autocomplete'
 
 export {
   TextInput,
@@ -9,5 +10,6 @@ export {
   Toggle,
   ToggleField,
   Range,
-  RangeField
+  RangeField,
+  Autocomplete
 }

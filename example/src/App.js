@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
-import { TextInputField, ToggleField, RangeField } from '@dougrich/uxlib'
+import { TextInputField, TextAreaField, ToggleField, RangeField, Autocomplete } from '@dougrich/uxlib'
 
 const Section = styled.section({
   padding: '2em 1em'
@@ -33,6 +33,32 @@ function withValue (Component) {
 const ValueTextInputField = withValue(TextInputField)
 const ValueToggleField = withValue(ToggleField)
 const ValueRangeField = withValue(RangeField)
+const ValueTextAreaField = withValue(TextAreaField)
+
+const ValueAutocomplete = class extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      value: '',
+      showAutocomplete: false
+    }
+  }
+
+  onChange = value => {
+    const lastwhitespace = value.lastIndexOf(/[\s^]/gi)
+    const lasttag = value.indexOf('@', lastwhitespace)
+    const showAutocomplete = lasttag >= 0
+    this.setState({ value, showAutocomplete })
+  }
+
+  render() {
+    return (
+      <Autocomplete showAutocomplete={this.state.showAutocomplete} autocomplete='pop up!'>
+        <TextAreaField onChange={this.onChange} label='Autocomplete starts with an @'/>
+      </Autocomplete>
+    )
+  }
+}
 
 export default class App extends Component {
   render () {
@@ -62,6 +88,7 @@ export default class App extends Component {
             value={6}
             label='Numbered'
           />
+          <ValueTextAreaField label='Text Area'/>
         </Section>
         <Section>
           <h2>Toggle</h2>
@@ -94,6 +121,10 @@ export default class App extends Component {
             value={600}
             addon='pixels'
           />
+        </Section>
+        <Section>
+          <h2>Autocomplete</h2>
+          <ValueAutocomplete/>
         </Section>
       </div>
     )
