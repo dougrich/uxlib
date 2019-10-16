@@ -7,7 +7,7 @@ const HiddenInput = styled.input({
   display: 'none'
 })
 
-export default class RadioSet extends React.PureComponent {
+export class RadioSet extends React.PureComponent {
   constructor (props, context) {
     super(props, context)
     this.onChange = this.onChange.bind(this)
