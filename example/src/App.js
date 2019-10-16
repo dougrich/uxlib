@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
-import { TextInputField, TextAreaField, ToggleField, RangeField, Autocomplete } from '@dougrich/uxlib'
+import { TextInputField, TextAreaField, ToggleField, RangeField, Autocomplete, Select } from '@dougrich/uxlib'
 
 const Section = styled.section({
   padding: '2em 1em'
@@ -54,11 +54,28 @@ const ValueAutocomplete = class extends React.Component {
   render() {
     return (
       <Autocomplete showAutocomplete={this.state.showAutocomplete} autocomplete='pop up!'>
-        <TextAreaField onChange={this.onChange} label='Autocomplete starts with an @'/>
+        <TextAreaField onChange={this.onChange} label='Autocomplete starts with an @' />
       </Autocomplete>
     )
   }
 }
+
+const ValueSelect = withValue(class extends React.Component {
+  render() {
+    return (
+      <Select {...this.props} options={[
+        {
+          value: '',
+          label: 'Cool!'
+        },
+        {
+          value: 'extreme',
+          label: 'Next gen!'
+        }
+      ]} />
+    )
+  }
+})
 
 export default class App extends Component {
   render () {
@@ -88,7 +105,7 @@ export default class App extends Component {
             value={6}
             label='Numbered'
           />
-          <ValueTextAreaField label='Text Area'/>
+          <ValueTextAreaField label='Text Area' />
         </Section>
         <Section>
           <h2>Toggle</h2>
@@ -124,7 +141,11 @@ export default class App extends Component {
         </Section>
         <Section>
           <h2>Autocomplete</h2>
-          <ValueAutocomplete/>
+          <ValueAutocomplete />
+        </Section>
+        <Section>
+          <h2>Select</h2>
+          <ValueSelect value='' />
         </Section>
       </div>
     )

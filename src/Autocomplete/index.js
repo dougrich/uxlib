@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from '@emotion/styled'
+import PropTypes from 'prop-types'
 import getCaretCoordinates from 'textarea-caret'
 
 const AutocompleteRoot = styled.div({
@@ -33,7 +34,7 @@ export default class Autocomplete extends React.PureComponent {
     const coords = getCaretCoordinates(e.target, e.target.selectionEnd)
     const y = coords.top + dy + coords.height
     const x = coords.left + dx
-    this.setState({ transform: `translate(${x}px, ${y}px)`})
+    this.setState({ transform: `translate(${x}px, ${y}px)` })
   }
   render() {
     return (
@@ -52,4 +53,10 @@ export default class Autocomplete extends React.PureComponent {
       </AutocompleteRoot>
     )
   }
+}
+
+Autocomplete.propTypes = {
+  children: PropTypes.node,
+  showAutocomplete: PropTypes.bool,
+  autocomplete: PropTypes.node
 }
