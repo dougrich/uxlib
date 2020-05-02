@@ -1,4 +1,5 @@
 import React from 'react'
+import Slider from './slider'
 import Range from './horizontal'
 import Toggle from './toggle'
 import withBounds from '../with-bounds'
@@ -10,7 +11,8 @@ import PropTypes from 'prop-types'
 
 export {
   Toggle,
-  Range
+  Range,
+  Slider
 }
 
 export const ToggleField = withLabel(Toggle)
